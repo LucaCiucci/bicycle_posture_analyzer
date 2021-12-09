@@ -1,0 +1,33 @@
+{
+  "name": "bicycle_posture_analyzer",
+  "version": "1.0.0",
+  "description": "...",
+  "main": "build/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "npm run build && electron ./build/main.js",
+    "package": "npm run build && npx electron-packager . --overwrite --all --out=\"./dist_packages\"",
+    "package2": "npm run build && npx electron-packager . --out=\"./dist_packages\""
+  },
+  "dependencies": {
+    "electron": "latest",
+    "path": "latest",
+    "@mediapipe/camera_utils": "latest",
+    "@mediapipe/control_utils": "latest",
+    "@mediapipe/control_utils_3d": "latest",
+    "@mediapipe/drawing_utils": "latest",
+    "@mediapipe/pose": "latest"
+  },
+  "devDependencies": {
+    "typescript": "latest",
+    "electron-packager": "latest",
+    "electron-builder": "latest"
+  },
+  "keywords": [
+    "a",
+    "b"
+  ],
+  "author": "Luca Ciucci",
+  "license": "GPL-3.0-or-later"
+}
