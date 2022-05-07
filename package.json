@@ -1,17 +1,18 @@
 {
   "name": "bicycle_posture_analyzer",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "...",
-  "main": "build/main.js",
+  "main": "./build/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "start": "npm run build && electron ./build/main.js",
+    "start": "npm run build && electron .",
     "package": "npm run build && npx electron-packager . --overwrite --all --out=\"./dist_packages\"",
-    "package2": "npm run build && npx electron-packager . --out=\"./dist_packages\""
+    "package2": "npm run build && npx electron-packager . --out=\"./dist_packages\"",
+    "publish": "electron-builder -p always"
   },
   "dependencies": {
-    "electron": "latest",
+    "@types/semver": "latest",
     "path": "latest",
     "@mediapipe/camera_utils": "latest",
     "@mediapipe/control_utils": "latest",
@@ -21,6 +22,7 @@
   },
   "devDependencies": {
     "typescript": "latest",
+    "electron": "latest",
     "electron-packager": "latest",
     "electron-builder": "latest"
   },
@@ -29,5 +31,26 @@
     "b"
   ],
   "author": "Luca Ciucci",
-  "license": "GPL-3.0-or-later"
+  "license": "GPL-3.0-or-later",
+  "build": {
+    "appId": "com.github.LucaCiucci.bicycle_posture_analyzer",
+    "mac": {
+      "category": "your.app.category.type"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false
+    },
+    "linux": {
+      "category": "your.app.category.type",
+      "target": "AppImage"
+    },
+    "files": [
+      "build/**/*",
+      "style/**/*",
+      "index.html"
+    ]
+  }
 }
